@@ -36,7 +36,6 @@ const ARMAS = [
   "El Reflejo: Bostezar de forma muy evidente mientras le hablas y conseguir que te devuelva el bostezo por contagio.",
   "¡Salud!: Ser el primero en decirle '¡Salud!' justo después de que estornude (tienes que estar atento o provocarlo con algo de pimienta cerca).",
   "El Picor: Que te rasque la espalda o el brazo con la excusa de que 'tienes las manos manchadas' o no llegas.",
-  "El Ninja: Ponerle una pegatina o un trocito de celo en la espalda sin que se dé cuenta.",
   "El Fotógrafo: Convencerle para hacerse un selfie juntos poniendo una cara ridícula (sacando la lengua, bizcos, etc.).",
   "El Cotilla: Lograr que te enseñe voluntariamente una foto de su galería del móvil (de su mascota, un viaje, etc.).",
 ];
