@@ -1,0 +1,18 @@
+# dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# env — nunca subir credenciales
+.env.local
+.env*.local
+
+# scaffold original — no forma parte del proyecto
+paula-party/
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
