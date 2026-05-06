@@ -41,19 +41,19 @@ const paula = {
 };
 
 const invitados = [
-  { id: "amigo01", nombre: "Sergio",        digitoAsignado: "1" },
-  { id: "amigo02", nombre: "Andrea Cobas",  digitoAsignado: "2" },
-  { id: "amigo03", nombre: "Andrea Romay",  digitoAsignado: "3" },
-  { id: "amigo04", nombre: "Carlota",       digitoAsignado: "4" },
-  { id: "amigo05", nombre: "Carmen",        digitoAsignado: "5" },
-  { id: "amigo06", nombre: "Celia Pérez",   digitoAsignado: "6" },
-  { id: "amigo07", nombre: "Boub",          digitoAsignado: "7" },
-  { id: "amigo09", nombre: "Javi Cuñado",   digitoAsignado: "9" },
-  { id: "amigo10", nombre: "Jorge De Pedro",digitoAsignado: "0" },
-  { id: "amigo11", nombre: "Jorge Gestal",  digitoAsignado: "1" },
-  { id: "amigo12", nombre: "Miguel Romero", digitoAsignado: "2" },
-  { id: "amigo13", nombre: "Xavi Viña",     digitoAsignado: "3" },
-  { id: "amigo14", nombre: "La Yaiza",      digitoAsignado: "4" },
+  { id: "sergio",         nombre: "Sergio",         digitoAsignado: "1", acertijoParaPaula: null },
+  { id: "andrea-cobas",  nombre: "Andrea Cobas",   digitoAsignado: "2", acertijoParaPaula: null },
+  { id: "andrea-romay",  nombre: "Andrea Romay",   digitoAsignado: "3", acertijoParaPaula: "Tu referente oficial de 'pelear' te esta esperando!!!" },
+  { id: "carlota",        nombre: "Carlota",        digitoAsignado: "4", acertijoParaPaula: "Una raxo de tapo y otra de huevos revueltos" },
+  { id: "carmen",         nombre: "Carmen",         digitoAsignado: "5", acertijoParaPaula: null },
+  { id: "celia-perez",   nombre: "Celia Pérez",    digitoAsignado: "6", acertijoParaPaula: "Entre todos aquí, solo tú y yo lo sabemos: los espaguetis no existen… salvo cuando nos vemos" },
+  { id: "boub",           nombre: "Boub",           digitoAsignado: "7", acertijoParaPaula: null },
+  { id: "javi-cunado",   nombre: "Javi Cuñado",    digitoAsignado: "9", acertijoParaPaula: "Taxista de homicidios" },
+  { id: "jorge-de-pedro",nombre: "Jorge De Pedro", digitoAsignado: "0", acertijoParaPaula: null },
+  { id: "jorge-gestal",  nombre: "Jorge Gestal",   digitoAsignado: "1", acertijoParaPaula: "No creo que quieras volver a montar en mi coche" },
+  { id: "miguel-romero", nombre: "Miguel Romero",  digitoAsignado: "2", acertijoParaPaula: "Cuanto más primo más me arrimo" },
+  { id: "xavi-vina",     nombre: "Xavi Viña",      digitoAsignado: "3", acertijoParaPaula: null },
+  { id: "la-yaiza",      nombre: "La Yaiza",       digitoAsignado: "4", acertijoParaPaula: null },
 ].map((u) => ({
   ...u,
   rol: "invitado",
@@ -61,14 +61,19 @@ const invitados = [
   estado: "vivo",
   objetivoId: null,
   arma: null,
-  acertijoParaPaula: "ACERTIJO_QUE_DESCRIBE_A_ESTE_AMIGO",
+  foto: null,
+  mensajeFelicitacion: null,
   qrEscaneado: false,
 }));
 
 // --------------------------------------------------------------------------
 
 // IDs eliminados en alguna revisión — se borran de Firestore si existen
-const BORRAR = ["amigo08"];
+const BORRAR = [
+  "amigo08", "amigo01", "amigo02", "amigo03", "amigo04", "amigo05",
+  "amigo06", "amigo07", "amigo09", "amigo10", "amigo11", "amigo12",
+  "amigo13", "amigo14",
+];
 
 async function main() {
   for (const id of BORRAR) {

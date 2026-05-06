@@ -111,6 +111,8 @@ export default function PaulaDashboard() {
       payload: {
         nombre: acertijoElegido.nombre,
         digito: acertijoElegido.digitoAsignado ?? "?",
+        foto: fresco.foto ?? null,
+        mensaje: fresco.mensajeFelicitacion ?? null,
       },
     });
   }

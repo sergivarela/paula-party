@@ -45,16 +45,30 @@ export default function ScanResultModal({ kind, payload, onClose }) {
 }
 
 function SuccessCard({ payload, onClose }) {
-  const { nombre, digito } = payload || {};
+  const { nombre, digito, foto, mensaje } = payload || {};
   return (
     <div className="card border-glow p-8 text-center space-y-5">
-      <div className="text-5xl">✨</div>
+      {foto ? (
+        <img
+          src={foto}
+          alt={nombre}
+          className="w-24 h-24 rounded-2xl object-cover mx-auto shadow-deep"
+        />
+      ) : (
+        <div className="text-5xl">✨</div>
+      )}
       <p className="font-mono text-xs tracking-[0.3em] text-neon-lime">
         DÍGITO DESBLOQUEADO
       </p>
       <h2 className="font-display text-2xl font-bold">
         ¡Encontraste a {nombre}!
       </h2>
+
+      {mensaje && (
+        <p className="text-white/80 text-sm leading-relaxed italic border-l-2 border-neon-purple/50 pl-3 text-left">
+          "{mensaje}"
+        </p>
+      )}
 
       <div className="my-2">
         <p className="text-white/50 text-xs uppercase tracking-widest mb-2">
