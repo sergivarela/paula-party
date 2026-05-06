@@ -124,25 +124,28 @@ function GhostCard({ payload, onClose }) {
   );
 }
 
-function MismatchCard({ payload, onClose }) {
-  const { esperado, recibido } = payload || {};
+const FRASES_MISMATCH = [
+  { emoji: "🥶", etiqueta: "¡FRÍO, FRÍO!", texto: "Ese no es. Vuelve a leer el acertijo con calma." },
+  { emoji: "🔍", etiqueta: "SIGUE BUSCANDO", texto: "Casi… pero no. El que buscas sigue por ahí escondido." },
+  { emoji: "🌀", etiqueta: "¡DESPISTE!", texto: "Has escaneado al equivocado. ¿Seguro que has leído bien el acertijo?" },
+  { emoji: "👀", etiqueta: "OJO AL DATO", texto: "No es ese. Abre bien los ojos y vuelve a intentarlo." },
+  { emoji: "🎯", etiqueta: "FALLASTE", texto: "Cerca… o quizás no tanto. Sigue buscando." },
+  { emoji: "🕵️", etiqueta: "PISTA EQUIVOCADA", texto: "Ese no era tu objetivo. El que buscas anda por aquí." },
+];
+
+function MismatchCard({ onClose }) {
+  const frase = FRASES_MISMATCH[Math.floor(Math.random() * FRASES_MISMATCH.length)];
   return (
     <div className="card p-8 text-center space-y-4 border-2 border-amber-400/60">
-      <div className="text-5xl">🤔</div>
+      <div className="text-5xl">{frase.emoji}</div>
       <p className="font-mono text-xs tracking-[0.3em] text-amber-300">
-        ESE NO ES
+        {frase.etiqueta}
       </p>
       <h2 className="font-display text-2xl font-bold">
-        El QR no coincide con el acertijo
+        QR incorrecto
       </h2>
-      <p className="text-white/60 text-sm">
-        Esperabas a <span className="text-white font-semibold">{esperado}</span>
-        {recibido ? (
-          <>
-            {" "}y has escaneado a{" "}
-            <span className="text-white font-semibold">{recibido}</span>.
-          </>
-        ) : null}
+      <p className="text-white/60 text-sm leading-relaxed">
+        {frase.texto}
       </p>
       <button onClick={onClose} className="btn-ghost w-full text-base">
         Volver a intentarlo
