@@ -95,12 +95,16 @@ export default function PaulaDashboard() {
       !fresco || fresco.estado === "fantasma" || (fresco.vidas ?? 0) <= 0;
 
     if (esFantasma) {
+      await marcarQrEscaneado(acertijoElegido.id);
       setResultado({
         kind: "ghost",
-        payload: { nombre: acertijoElegido.nombre },
+        payload: {
+          nombre: acertijoElegido.nombre,
+          digito: acertijoElegido.digitoAsignado ?? "?",
+          foto: fresco?.foto ?? null,
+          mensaje: fresco?.mensajeFelicitacion ?? null,
+        },
       });
-      // 👉 No marcamos qrEscaneado=true: Paula tiene que volver a escanear
-      //    al fantasma DESPUÉS del castigo para conseguir su dígito.
       return;
     }
 

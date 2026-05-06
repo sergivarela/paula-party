@@ -94,13 +94,21 @@ function SuccessCard({ payload, onClose }) {
 }
 
 function GhostCard({ payload, onClose }) {
-  const { nombre } = payload || {};
+  const { nombre, digito, foto, mensaje } = payload || {};
   return (
     <div
-      className="rounded-3xl p-8 text-center space-y-4 border-2 border-red-500 bg-gradient-to-b from-red-950/95 to-red-900/80 animate-shake"
+      className="rounded-3xl p-8 text-center space-y-4 border-2 border-red-500 bg-gradient-to-b from-red-950/95 to-red-900/80"
       style={{ boxShadow: "0 0 40px rgba(239,68,68,.55)" }}
     >
-      <div className="text-6xl animate-pulse-soft">💀</div>
+      {foto ? (
+        <img
+          src={foto}
+          alt={nombre}
+          className="w-24 h-24 rounded-2xl object-cover mx-auto opacity-70 grayscale"
+        />
+      ) : (
+        <div className="text-6xl">💀</div>
+      )}
       <p className="font-mono text-xs tracking-[0.3em] text-red-300">
         ALERTA · ESTADO FANTASMA
       </p>
@@ -108,12 +116,26 @@ function GhostCard({ payload, onClose }) {
         ¡Penalización!
       </h2>
       <p className="text-red-100 text-base leading-snug">
-        Has escaneado a <span className="font-bold">{nombre}</span> y ya es un{" "}
-        <span className="font-bold uppercase">fantasma</span>.
+        <span className="font-bold">{nombre}</span> ya es un{" "}
+        <span className="font-bold uppercase">fantasma</span>. Toca un trago de castigo.
       </p>
-      <p className="text-white font-display text-xl mt-3">
-        🍷 Pide un castigo antes de seguir
-      </p>
+
+      {mensaje && (
+        <p className="text-red-200/80 text-sm leading-relaxed italic border-l-2 border-red-400/40 pl-3 text-left">
+          "{mensaje}"
+        </p>
+      )}
+
+      <div className="pt-1">
+        <p className="text-red-300/60 text-xs uppercase tracking-widest mb-1">Su dígito</p>
+        <div
+          className="font-display font-bold text-white leading-none"
+          style={{ fontSize: "5rem", textShadow: "0 0 20px rgba(239,68,68,.6)" }}
+        >
+          {digito}
+        </div>
+      </div>
+
       <button
         onClick={onClose}
         className="w-full mt-4 px-6 py-4 rounded-2xl font-display font-bold text-lg bg-white text-red-700 active:scale-95 transition"
