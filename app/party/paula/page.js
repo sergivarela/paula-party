@@ -44,15 +44,17 @@ export default function PaulaDashboard() {
     return () => unsub();
   }, []);
 
-  // Pendientes (los que faltan por escanear)
-  const pendientes = useMemo(
+  // Pendientes primero, escaneados al final — todos visibles
+  const ordenados = useMemo(
     () =>
-      invitados
-        .filter((u) => !u.qrEscaneado)
-        .sort((a, b) => (a.id > b.id ? 1 : -1)),
+      [...invitados].sort((a, b) => {
+        if (a.qrEscaneado !== b.qrEscaneado) return a.qrEscaneado ? 1 : -1;
+        return a.id > b.id ? 1 : -1;
+      }),
     [invitados]
   );
 
+  const pendientes = ordenados.filter((u) => !u.qrEscaneado);
   const completados = invitados.length - pendientes.length;
   const total = invitados.length || 14;
 
@@ -168,7 +170,7 @@ export default function PaulaDashboard() {
       {/* Lista de acertijos */}
       <section className="space-y-3">
         <h2 className="font-display text-lg font-semibold text-white/90 px-1">
-          Acertijos pendientes
+          Tus acertijos
         </h2>
 
         {pendientes.length === 0 && invitados.length > 0 && (
@@ -187,14 +189,27 @@ export default function PaulaDashboard() {
           <p className="text-white/50 text-sm px-1">Cargando invitados…</p>
         )}
 
-        {pendientes.map((inv, i) => (
+        {ordenados.map((inv, i) => (
           <AcertijoCard
             key={inv.id}
             index={i}
             invitado={inv}
             onPick={(elegido) => {
-              setAcertijoElegido(elegido);
-              setScannerActivo(true);
+              if (elegido.qrEscaneado) {
+                // Ya escaneado: mostrar info sin abrir escáner
+                setResultado({
+                  kind: "success",
+                  payload: {
+                    nombre: elegido.nombre,
+                    digito: elegido.digitoAsignado ?? "?",
+                    foto: elegido.foto ?? null,
+                    mensaje: elegido.mensajeFelicitacion ?? null,
+                  },
+                });
+              } else {
+                setAcertijoElegido(elegido);
+                setScannerActivo(true);
+              }
             }}
           />
         ))}
