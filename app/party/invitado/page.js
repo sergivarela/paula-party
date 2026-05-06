@@ -205,7 +205,7 @@ export default function InvitadoDashboard() {
       )}
 
       {/* Estado fantasma */}
-      {esFantasma && <GhostOverlay nombre={user.nombre} />}
+      {esFantasma && <GhostOverlay nombre={user.nombre} userId={user.id} />}
     </main>
   );
 }
