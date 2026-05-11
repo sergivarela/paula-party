@@ -47,12 +47,13 @@ export default function ScanResultModal({ kind, payload, onClose }) {
 function SuccessCard({ payload, onClose }) {
   const { nombre, digito, foto, mensaje } = payload || {};
   return (
-    <div className="card border-glow p-8 text-center space-y-5">
+    <div className="card border-glow p-6 text-center space-y-4">
       {foto ? (
         <img
           src={foto}
           alt={nombre}
-          className="w-24 h-24 rounded-2xl object-cover mx-auto shadow-deep"
+          className="w-full rounded-2xl object-cover shadow-deep"
+          style={{ maxHeight: "55vw" }}
         />
       ) : (
         <div className="text-5xl">✨</div>
@@ -70,16 +71,15 @@ function SuccessCard({ payload, onClose }) {
         </p>
       )}
 
-      <div className="my-2">
-        <p className="text-white/50 text-xs uppercase tracking-widest mb-2">
+      <div>
+        <p className="text-white/50 text-xs uppercase tracking-widest mb-1">
           Apunta este número
         </p>
         <div
           className="font-display font-bold text-neon-lime leading-none"
           style={{
-            fontSize: "8rem",
-            textShadow:
-              "0 0 24px rgba(202,255,51,.55), 0 0 60px rgba(202,255,51,.35)",
+            fontSize: "3.5rem",
+            textShadow: "0 0 16px rgba(202,255,51,.55), 0 0 40px rgba(202,255,51,.35)",
           }}
         >
           {digito}
@@ -104,7 +104,8 @@ function GhostCard({ payload, onClose }) {
         <img
           src={foto}
           alt={nombre}
-          className="w-24 h-24 rounded-2xl object-cover mx-auto opacity-70 grayscale"
+          className="w-full rounded-2xl object-cover opacity-70 grayscale shadow-deep"
+          style={{ maxHeight: "55vw" }}
         />
       ) : (
         <div className="text-6xl">💀</div>
@@ -130,7 +131,7 @@ function GhostCard({ payload, onClose }) {
         <p className="text-red-300/60 text-xs uppercase tracking-widest mb-1">Su dígito</p>
         <div
           className="font-display font-bold text-white leading-none"
-          style={{ fontSize: "5rem", textShadow: "0 0 20px rgba(239,68,68,.6)" }}
+          style={{ fontSize: "3.5rem", textShadow: "0 0 20px rgba(239,68,68,.6)" }}
         >
           {digito}
         </div>
