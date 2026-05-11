@@ -23,7 +23,7 @@ export default function ScanResultModal({ kind, payload, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center px-5 bg-black/80 backdrop-blur-sm animate-[fadeIn_.18s_ease-out]"
+      className="fixed inset-0 z-50 flex items-start justify-center px-5 py-6 bg-black/80 backdrop-blur-sm overflow-y-auto animate-[fadeIn_.18s_ease-out]"
       onClick={onClose}
     >
       <style jsx>{`
@@ -32,7 +32,7 @@ export default function ScanResultModal({ kind, payload, onClose }) {
       `}</style>
 
       <div
-        className="w-full max-w-sm"
+        className="w-full max-w-sm my-auto"
         style={{ animation: "pop .25s cubic-bezier(.2,.8,.2,1.1)" }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -52,8 +52,7 @@ function SuccessCard({ payload, onClose }) {
         <img
           src={foto}
           alt={nombre}
-          className="w-full rounded-2xl object-cover shadow-deep"
-          style={{ maxHeight: "55vw" }}
+          className="w-full rounded-2xl object-contain shadow-deep"
         />
       ) : (
         <div className="text-5xl">✨</div>
@@ -104,8 +103,7 @@ function GhostCard({ payload, onClose }) {
         <img
           src={foto}
           alt={nombre}
-          className="w-full rounded-2xl object-cover opacity-70 grayscale shadow-deep"
-          style={{ maxHeight: "55vw" }}
+          className="w-full rounded-2xl object-contain opacity-70 grayscale shadow-deep"
         />
       ) : (
         <div className="text-6xl">💀</div>
