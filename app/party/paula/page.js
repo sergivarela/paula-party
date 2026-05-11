@@ -1,7 +1,7 @@
 // app/party/paula/page.js
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
 import { subscribeToInvitados, marcarQrEscaneado, fetchUser } from "@/lib/usersApi";
@@ -59,7 +59,7 @@ export default function PaulaDashboard() {
   const total = invitados.length || 14;
 
   // Tras leer un QR, validar contra el invitado elegido
-  async function handleScan(decodedText) {
+  const handleScan = useCallback(async (decodedText) => {
     setScannerActivo(false);
     const idEscaneado = (decodedText || "").trim();
 
@@ -121,7 +121,7 @@ export default function PaulaDashboard() {
         mensaje: fresco.mensajeFelicitacion ?? null,
       },
     });
-  }
+  }, [acertijoElegido]);
 
   if (loading || !user) {
     return <LoadingSplash message="Cargando misión de Paula…" />;
