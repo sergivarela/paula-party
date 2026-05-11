@@ -45,7 +45,7 @@ const invitados = [
   { id: "andrea-cobas",  nombre: "Andrea Cobas",   digitoAsignado: "2", acertijoParaPaula: null },
   { id: "andrea-romay",  nombre: "Andrea Romay",   digitoAsignado: "3", acertijoParaPaula: "Tu referente oficial de 'pelear' te esta esperando!!!" },
   { id: "carlota",        nombre: "Carlota",        digitoAsignado: "4", acertijoParaPaula: "Una raxo de tapo y otra de huevos con patatas" },
-  { id: "carmen",         nombre: "Carmen",         digitoAsignado: "5", acertijoParaPaula: null },
+  { id: "carmen",         nombre: "Carmen",         digitoAsignado: "5", acertijoParaPaula: "Si escuchas un “oinc” en mitad de una carcajada…vas por buen camino" },
   { id: "celia-perez",   nombre: "Celia Pérez",    digitoAsignado: "6", acertijoParaPaula: "Entre todos aquí, solo tú y yo lo sabemos: los espaguetis no existen… salvo cuando nos vemos" },
   { id: "boub",           nombre: "Boub",           digitoAsignado: "7", acertijoParaPaula: null },
   { id: "javi-cunado",   nombre: "Javi Cuñado",    digitoAsignado: "9", acertijoParaPaula: "Taxista de homicidios" },
@@ -53,7 +53,7 @@ const invitados = [
   { id: "jorge-gestal",  nombre: "Jorge Gestal",   digitoAsignado: "1", acertijoParaPaula: "No creo que quieras volver a montar en mi coche" },
   { id: "miguel-romero", nombre: "Miguel Romero",  digitoAsignado: "2", acertijoParaPaula: "Cuanto más primo más me arrimo" },
   { id: "xavi-vina",     nombre: "Xavi Viña",      digitoAsignado: "3", acertijoParaPaula: "¿Cobicha? Estamos en un examen y suena JA JA JA SANCHEEEEZ" },
-  { id: "la-yaiza",      nombre: "La Yaiza",       digitoAsignado: "4", acertijoParaPaula: "\"Vi que Jorge se sacaba fotos con él, dije ostia ostia un famoso, y ya sabía quien era, y le tiré una foto pero ni se pimpló de quien yo era\" (las iniciales del protagonista de la historia son R.M.)" },
+  { id: "la-yaiza",      nombre: "La Yaiza",       digitoAsignado: "4", acertijoParaPaula: "Vi que Jorge se sacaba fotos con él, dije ostia ostia un famoso, y ya sabía quien era, y le tiré una foto pero ni se pimpló de quien yo era (las iniciales del protagonista de la historia son R.M.)" },
 ].map((u) => ({
   ...u,
   rol: "invitado",
