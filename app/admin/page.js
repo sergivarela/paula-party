@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { collection, getDocs, doc, writeBatch, updateDoc } from "firebase/firestore";
+import { collection, getDocs, doc, writeBatch, updateDoc, getDocsFromServer } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 const SECRET_KEY = "12DE@gosto";
@@ -114,15 +114,25 @@ export default function AdminPage() {
     setResultado(null);
     setConfirmReset(false);
     try {
-      const snap = await getDocs(collection(db, "users"));
+      // Forzamos lectura fresca del servidor para no depender de la caché local
+      const snap = await getDocsFromServer(collection(db, "users"));
       const inv = snap.docs
         .map((d) => ({ id: d.id, ...d.data() }))
         .filter((u) => u.rol === "invitado");
+
+      if (inv.length === 0) {
+        setResultado({ tipo: "err", msg: "❌ No se encontraron invitados" });
+        return;
+      }
+
       const batch = writeBatch(db);
       inv.forEach((u) => batch.update(doc(db, "users", u.id), {
         vidas: 3, estado: "vivo", arma: null, qrEscaneado: false,
       }));
       await batch.commit();
+
+      // Actualizamos también el estado local para que el panel refleje el reset
+      setInvitados((prev) => prev.map((u) => ({ ...u, vidas: 3, estado: "vivo", arma: null, qrEscaneado: false })));
       setResultado({ tipo: "ok", msg: `✅ Juego reiniciado — ${inv.length} jugadores a 3 vidas` });
     } catch (e) {
       setResultado({ tipo: "err", msg: `❌ ${e.message}` });
