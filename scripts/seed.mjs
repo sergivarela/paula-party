@@ -41,13 +41,13 @@ const paula = {
 };
 
 const invitados = [
-  { id: "sergio",         nombre: "Sergio",         digitoAsignado: "1", acertijoParaPaula: null },
-  { id: "andrea-cobas",  nombre: "Andrea Cobas",   digitoAsignado: "2", acertijoParaPaula: null },
+  { id: "sergio",         nombre: "Sergio",         digitoAsignado: "1", acertijoParaPaula: "Me encontrarás metido en el rodapié" },
+  { id: "andrea-cobas",  nombre: "Andrea Cobas",   digitoAsignado: "2", acertijoParaPaula: "Soy el orden personificado, cuando quieras te presto mis cosas… Bizum" },
   { id: "andrea-romay",  nombre: "Andrea Romay",   digitoAsignado: "3", acertijoParaPaula: "Tu referente oficial de 'pelear' te esta esperando!!!" },
   { id: "carlota",        nombre: "Carlota",        digitoAsignado: "4", acertijoParaPaula: "Una raxo de tapo y otra de huevos con patatas" },
   { id: "carmen",         nombre: "Carmen",         digitoAsignado: "5", acertijoParaPaula: "Si escuchas un “oinc” en mitad de una carcajada…vas por buen camino" },
   { id: "celia-perez",   nombre: "Celia Pérez",    digitoAsignado: "6", acertijoParaPaula: "Entre todos aquí, solo tú y yo lo sabemos: los espaguetis no existen… salvo cuando nos vemos" },
-  { id: "boub",           nombre: "Boub",           digitoAsignado: "7", acertijoParaPaula: null },
+  { id: "boub",           nombre: "Boub",           digitoAsignado: "7", acertijoParaPaula: "Fuera de mi habitación" },
   { id: "javi-cunado",   nombre: "Javi Cuñado",    digitoAsignado: "9", acertijoParaPaula: "Taxista de homicidios" },
   { id: "jorge-de-pedro",nombre: "Jorge De Pedro", digitoAsignado: "0", acertijoParaPaula: null },
   { id: "jorge-gestal",  nombre: "Jorge Gestal",   digitoAsignado: "1", acertijoParaPaula: "No creo que quieras volver a montar en mi coche" },
