@@ -69,7 +69,7 @@ export default function AdminPage() {
     getDocs(collection(db, "users")).then((snap) => {
       const lista = snap.docs
         .map((d) => ({ id: d.id, ...d.data() }))
-        .filter((u) => u.rol === "invitado")
+        .filter((u) => u.rol === "invitado" || u.rol === "especial")
         .sort((a, b) => a.nombre.localeCompare(b.nombre));
       setInvitados(lista);
     });
