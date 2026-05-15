@@ -20,7 +20,6 @@ const ARMAS = [
   "¡Salud!: Ser el primero en decirle '¡Salud!' justo después de que estornude.",
   "El Picor: Que te rasque la espalda o el brazo con la excusa de que 'tienes las manos manchadas' o no llegas.",
   "El Fotógrafo: Convencerle para hacerse un selfie juntos poniendo una cara ridícula (sacando la lengua, bizcos, etc.).",
-  "El Cotilla: Lograr que te enseñe voluntariamente una foto de su galería del móvil (de su mascota, un viaje, etc.).",
 ];
 
 function shuffle(arr) {

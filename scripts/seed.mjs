@@ -49,7 +49,6 @@ const invitados = [
   { id: "celia-perez",   nombre: "Celia Pérez",    digitoAsignado: "6", acertijoParaPaula: "Entre todos aquí, solo tú y yo lo sabemos: los espaguetis no existen… salvo cuando nos vemos" },
   { id: "boub",           nombre: "Boub",           digitoAsignado: "7", acertijoParaPaula: "Fuera de mi habitación" },
   { id: "javi-cunado",   nombre: "Javi Cuñado",    digitoAsignado: "9", acertijoParaPaula: "Taxista de homicidios" },
-  { id: "jorge-de-pedro",nombre: "Jorge De Pedro", digitoAsignado: "0", acertijoParaPaula: null },
   { id: "jorge-gestal",  nombre: "Jorge Gestal",   digitoAsignado: "1", acertijoParaPaula: "No creo que quieras volver a montar en mi coche" },
   { id: "miguel-romero", nombre: "Miguel Romero",  digitoAsignado: "2", acertijoParaPaula: "Cuanto más primo más me arrimo" },
   { id: "xavi-vina",     nombre: "Xavi Viña",      digitoAsignado: "3", acertijoParaPaula: "¿Cobicha? Estamos en un examen y suena JA JA JA SANCHEEEEZ" },
@@ -72,7 +71,7 @@ const invitados = [
 const BORRAR = [
   "amigo08", "amigo01", "amigo02", "amigo03", "amigo04", "amigo05",
   "amigo06", "amigo07", "amigo09", "amigo10", "amigo11", "amigo12",
-  "amigo13", "amigo14",
+  "amigo13", "amigo14", "jorge-de-pedro",
 ];
 
 async function main() {
